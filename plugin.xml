@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-log2c-doodle" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Cordova doodle plugin</name>
+    <js-module name="DoodlePlugin" src="www/doodleplugin.js">
+        <clobbers target="cordova.plugins.DoodlePlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="DoodlePlugin">
+                <param name="android-package" value="org.apache.cordova.doodle.DoodlePlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/DoodlePlugin.java" target-dir="src/org/apache/cordova/doodle" />
+        <framework custom="true" src="src/android/libDoodle.gradle" type="gradleReference" />
+        <resource-file src="src/android/libDoodle.aar" target="libs/libDoodle.aar" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="DoodlePlugin">
+                <param name="ios-package" value="DoodlePlugin" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/DoodlePlugin.h" />
+        <source-file src="src/ios/DoodlePlugin.m" />
+        <podspec>
+            <config>
+                <source url="https://github.com/aliyun/aliyun-specs.git"/>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name ="LFMediaEditingController" />
+            </pods>
+        </podspec>
+    </platform>
+</plugin>
