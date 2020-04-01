@@ -88,6 +88,7 @@
 }
 - (void)lf_PhotoEditingController:(LFPhotoEditingController *)photoEditingVC didFinishPhotoEdit:(LFPhotoEdit *)photoEdit {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        self.image = photoEdit.editPreviewImage;
         NSData  *drawingData = UIImageJPEGRepresentation(self.image, 1.0f);
         NSString *message = [NSString stringWithFormat:@"data:image/jpg;base64,%@", [drawingData base64EncodedStringWithOptions:0]];
 
