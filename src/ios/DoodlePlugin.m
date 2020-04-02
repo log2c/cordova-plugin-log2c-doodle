@@ -2,7 +2,7 @@
 #import "DoodlePlugin.h"
 #import <Photos/PHImageManager.h>
 #import <Photos/PHAsset.h>
-#import "LFPhotoEditingController.h"
+#import <LFMediaEditingController/LFPhotoEditingController.h>
 
 
 @interface DoodlePlugin()<LFPhotoEditingControllerDelegate>

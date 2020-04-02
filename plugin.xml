@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-log2c-doodle" version="1.1.0"
+<plugin id="cordova-plugin-log2c-doodle" version="1.1.1"
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Cordova doodle plugin</name>
@@ -25,6 +25,15 @@
         </config-file>
         <header-file src="src/ios/DoodlePlugin.h" />
         <source-file src="src/ios/DoodlePlugin.m" />
-        <framework src="src/ios/LFMediaEditingController.framework" custom="true" />
+        <podspec>
+            <config>
+                <source url="https://github.com/aliyun/aliyun-specs.git"/>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name ="LFMediaEditingController" />
+            </pods>
+        </podspec>
+
     </platform>
 </plugin>
